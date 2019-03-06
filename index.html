@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Leap Year</title>
+</head>
+<body>   
+
+    <div id="ly-area">
+          <p>Is it a leap year?</p>    
+        <form>
+              Enter a year:<br>
+              <input type="number" id="leap-year"><br>               
+        </form>
+    </div>
+    <br>
+
+    <div id="button-area">
+        <button id="btn">LEAP</button>
+    </div>
+    <br>
+
+    <div id="output"></div>
+
+    <script>             
+        document.getElementById("btn").addEventListener("click", isLeap);
+
+        //error in script
+        //enter key not triggering function
+        /*
+        const input = document.getElementById("leap-year");
+        input.addEventListener('keyup', function(e){
+            e.preventDefault();
+            if(e.keyCode === 13)  {
+                document.getElementById("btn").addEventListener("click", isLeap);
+            }
+        });
+        */       
+        
+        const outputDiv = document.getElementById("output");      
+        let count = 0;
+        function isLeap() {
+            let year = document.getElementById("leap-year").value;  
+            var p = document.createElement("p");         
+
+            if( (year % 4) === 0){
+                p.textContent = year + " is a leap year.";
+                outputDiv.appendChild(p);
+            }
+            else{
+                p.textContent = year + " is not a leap year.";
+                outputDiv.appendChild(p);
+            }  
+            count++;
+            if (count === 5){
+                outputDiv.innerHTML = "";
+                count == 0;
+            }        
+        }
+    </script>
+
+</body>
+</html>
